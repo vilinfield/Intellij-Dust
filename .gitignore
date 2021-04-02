@@ -1,6 +1,14 @@
+# IntelliJ Files
 .idea/workspace.xml
-gen/
+.idea/uiDesigner.xml
+
+# Jflex Files
+jflex-*.jar
+idea-flex.skeleton
+
+# Build Files
 out/
-src/com/linkedin/intellij/dust/DustLexer.java
-src/com/linkedin/intellij/dust/DustLexerAdapter.java
-dust_syntax*.jar
+dust_syntax.jar
+
+# Dust.flex and Dust.bnf Generated Files
+gen/

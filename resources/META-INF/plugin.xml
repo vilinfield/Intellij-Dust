@@ -1,0 +1,169 @@
+<idea-plugin url="https://github.com/vilinfield/Intellij-Dust">
+    <id>com.github.vilinfield.dust</id>
+    <name>Dust.js</name>
+    <version>0.4.0</version>
+    <vendor url="https://github.com/vilinfield" email="vilinfield@gmail.com">Victor Linfield</vendor>
+
+    <description><![CDATA[
+      <a href="http://linkedin.github.com/dustjs/">Dust.js</a> Template Support
+      <br>
+      <br>
+      Issues, feature requests, source code: <a href="https://github.com/vilinfield/Intellij-Dust">https://github.com/vilinfield/Intellij-Dust</a>
+      ]]></description>
+
+    <change-notes><![CDATA[
+    <b>Version 0.4.0</b>
+    <ul>
+      <li>
+        Maintainer change from Yi-Fan Zhang (yifanz) to Victor Linfield (vilinfield)
+      </li>
+      <li>
+        Add support for newer versions of Intellij > 2020.3
+      </li>
+      <li>
+        Inherit color scheme from defaults
+      </li>
+      <li>
+        Update colorscheme page demo
+      </li>
+      <li>
+        Add *.dust as a default file type alongside *.tl
+      </li>
+      <li>
+        Change file icon to an SVG matching the default icons for other template languages
+      </li>
+    </ul>
+    <b>Version 0.3.8</b>
+    <ul>
+      <li>
+        Allow hyphen inside of identifiers
+      </li>
+    </ul>
+    <b>Version 0.3.7</b>
+    <ul>
+      <li>
+        Use system dependent file separator when resolving partials
+      </li>
+      <li>
+        Fixed parsing errors with single period path expressions
+      </li>
+      <li>
+        Allow multiple colon tags
+      </li>
+    </ul>
+    <b>Version 0.3.6</b>
+    <ul>
+      <li>
+        Allow path expression inside subscript
+      </li>
+      <li>
+        Fix bugs in subscript tokenizer rule
+      </li>
+    </ul>
+    <b>Version 0.3.5</b>
+    <ul>
+      <li>
+        Allow self-closing section tags in grammar
+      </li>
+    </ul>
+    <b>Version 0.3.4</b>
+    <ul>
+      <li>
+        Fixed bug with parsing numeric key tag
+      </li>
+    </ul>
+    <b>Version 0.3.3</b>
+    <ul>
+      <li>
+        Fixed bug with using current context and numbers as attribute values
+      </li>
+    </ul>
+    <b>Version 0.3.2</b>
+    <ul>
+      <li>
+        Fixed bug in comment parsing
+      </li>
+    </ul>
+    <b>Version 0.3.1</b>
+    <ul>
+      <li>
+        Fixed compatibility issues with Intellij 11 and set it as the minimum supported version
+      </li>
+      <li>
+        Fixed bugs in left curly brace and identifier token patterns in lexer
+      </li>
+    </ul>
+    <b>Version 0.3</b>
+    <ul>
+      <li>
+        Added closing tag auto-completion
+      </li>
+      <li>
+        Added dust partial tag goto reference shortcut "Ctrl+b"
+      </li>
+      <li>
+        Fix parsing error on self-closing block tags
+      </li>
+      <li>
+        Fix brace matcher bug when key tags are used in attribute strings
+      </li>
+      <li>
+        Remove redundant HTML pattern rules in Dust lexer
+      </li>
+    </ul>
+    <b>Version 0.2</b>
+    <ul>
+      <li>
+        Added Dust brace match highlighting
+      </li>
+      <li>
+        Added "Ctrl+/" shortcut for Dust comments
+      </li>
+      <li>
+        Fix syntax highlighting for subscript operator in tags (e.g. {#section[0]}...{/section[0]})
+      </li>
+      <li>
+        Added TODO highlighting in comments
+      </li>
+    </ul>
+    <b>Version 0.1.2</b>
+    <ul>
+      <li>
+        Fix syntax highlighting when javascript is present in template
+      </li>
+    </ul>
+    <b>Version 0.1.1</b>
+    <ul>
+      <li>
+        Enable plugin for all JetBrain products
+      </li>
+    </ul>
+    <b>Version 0.1</b>
+    <ul>
+      <li>
+        Provides syntax highlighting for Dust templates
+      </li>
+    </ul>
+      ]]>
+    </change-notes>
+
+    <idea-version since-build="203.0"/>
+
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Dust" implementationClass="com.github.vilinfield.dust.DustFileType"
+                  fieldName="INSTANCE" language="Dust" extensions="dust;tl"/>
+        <lang.parserDefinition language="Dust" implementationClass="com.github.vilinfield.dust.DustParserDefinition"/>
+        <lang.formatter language="Dust" implementationClass="com.github.vilinfield.dust.DustFormattingModelBuilder"/>
+        <completion.contributor language="Dust" implementationClass="com.github.vilinfield.dust.DustCompletionContributor"/>
+        <gotoDeclarationHandler implementation="com.github.vilinfield.dust.DustGotoDeclarationHandler"/>
+        <lang.fileViewProviderFactory language="Dust" implementationClass="com.github.vilinfield.dust.DustFileViewProviderFactory"/>
+        <colorSettingsPage implementation="com.github.vilinfield.dust.DustColorSettingsPage"/>
+        <annotator language="Dust" implementationClass="com.github.vilinfield.dust.DustAnnotator"/>
+        <braceMatcher filetype="Dust" implementationClass="com.github.vilinfield.dust.DustBraceMatcher"/>
+        <typedHandler implementation="com.github.vilinfield.dust.DustTypedHandler"/>
+        <enterHandlerDelegate implementation="com.github.vilinfield.dust.DustEnterHandler"/>
+        <lang.commenter language="Dust" implementationClass="com.github.vilinfield.dust.DustCommenter"/>
+    </extensions>
+</idea-plugin>
