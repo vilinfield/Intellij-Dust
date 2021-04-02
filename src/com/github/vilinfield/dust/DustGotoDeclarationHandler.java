@@ -10,7 +10,6 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiManager;
 import com.intellij.psi.search.FileTypeIndex;
 import com.intellij.psi.search.GlobalSearchScope;
-import com.intellij.util.indexing.FileBasedIndex;
 import com.github.vilinfield.dust.psi.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -88,9 +87,8 @@ public class DustGotoDeclarationHandler implements GotoDeclarationHandler
                         if (manager != null)
                         {
                             Project project = manager.getProject();
-                            Collection<VirtualFile> virtualFiles = FileBasedIndex.getInstance().getContainingFiles(
-                                    FileTypeIndex.NAME, DustFileType.INSTANCE, GlobalSearchScope.allScope(project)
-                            );
+                            Collection<VirtualFile> virtualFiles = FileTypeIndex
+                                    .getFiles(DustFileType.INSTANCE, GlobalSearchScope.allScope(project));
                             List<PsiElement> foundElements = new ArrayList<>();
                             PsiFile containingFile = sourceElement.getContainingFile();
                             for (VirtualFile vFile : virtualFiles)
