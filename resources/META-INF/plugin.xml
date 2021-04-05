@@ -2,13 +2,28 @@
     <id>com.github.vilinfield.dust</id>
     <name>Dust.js</name>
     <version>0.4.0</version>
-    <vendor url="https://github.com/vilinfield" email="vilinfield@gmail.com">Victor Linfield</vendor>
+    <vendor>Victor Linfield</vendor>
 
     <description><![CDATA[
-      <a href="http://linkedin.github.com/dustjs/">Dust.js</a> Template Support
+      <a href="http://linkedin.github.com/dustjs/">Dust.js</a> Template Support.
+      <br>
+      Provides syntax highlighting for the Dust.js Templating Language, goto declaration on dust partial tags and
+      support within standard HTML documents.
       <br>
       <br>
-      Issues, feature requests, source code: <a href="https://github.com/vilinfield/Intellij-Dust">https://github.com/vilinfield/Intellij-Dust</a>
+      After installation:
+      <br>
+      <ul>
+          <li>
+          Associate the plugin with your dust file extension: File -> Settings -> Editor -> File Types -> Dust template
+          (*.dust and *.tl are associated by default).
+          </li>
+          <li>
+          Customize appearance: File -> Settings -> Editor -> Color Scheme -> Dust (optional, inherits from defaults).
+          </li>
+      </ul>
+      <br>
+      Issues, feature requests, source code and further documentation: <a href="https://github.com/vilinfield/Intellij-Dust">https://github.com/vilinfield/Intellij-Dust</a>.
       ]]></description>
 
     <change-notes><![CDATA[

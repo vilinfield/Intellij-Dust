@@ -1,31 +1,43 @@
 # Dust Plugin for Intellij
 
-Provides syntax highlighting for the [Dust.js Templating Language](http://linkedin.github.com/dustjs/).
+[Dust.js](http://linkedin.github.com/dustjs/) Template Support.
+
+Provides syntax highlighting for the Dust.js Templating Language, goto declaration on dust partial tags and support
+within standard HTML documents.
 
 Forked from [https://github.com/yifanz/Intellij-Dust](https://github.com/yifanz/Intellij-Dust)
 which is no longer maintained.
 
-## How to Install
+## Install
 
-1. Download the plugin source code from [https://github.com/vilinfield/Intellij-Dust](https://github.com/vilinfield/Intellij-Dust)
-2. Build the plugin following the steps in the developer notes
-3. Go to File -> Settings -> Plugins -> Install plugin from disk
-4. Restart IntelliJ
-4. Associate plugin with your dust file extension: File -> Settings -> File Types (*.dust and *.tl are associated by default)
-5. Customize appearance: File -> Settings -> Editor -> Colors & Fonts -> Dust (optional, inherits from defaults)
+Plugin is available through the [Jetbrains plugin repository](https://plugins.jetbrains.com/plugin/16458-dust-js).
+
+### Install From Repository (recommended)
+
+1. Search for and install the plugin: File -> Settings -> Plugins -> Browse repositories.
+
+### Manual Install
+
+1. Download the latest jar from [GitHub Releases](https://github.com/vilinfield/Intellij-Dust/releases).
+2. Go to File -> Settings -> Plugins -> Install plugin from disk.
+
+### After Installation
+
+1. Associate plugin with your dust file extension: File -> Settings -> Editor -> File Types -> Dust template (*.dust and *.tl are associated by default).
+2. Customize appearance: File -> Settings -> Editor -> Color Scheme -> Dust (optional, inherits from defaults).
 
 ## Developer Notes
 
 1. Open the project with Intellij. The project is already setup to be an Intellij Plugin Module and should have the
    build settings configured. The only build dependency is the IDEA SDK. However, you may need to configure the SDK
    version and location specific to your system.
-2. Install the [Grammar-Kit](http://plugins.jetbrains.com/plugin/?id=6606) plugin.
+2. Install the [Grammar-Kit](https://plugins.jetbrains.com/plugin/?id=6606) plugin.
 3. You will need the Grammar-Kit to generate the parser source files from Dust.bnf and JFlex to generate the DustLexer
    from Dust.flex. Since the generated sources are not checked into version control, you need to remember to generate
    the lexer/parser before compiling.
 4. Build the plugin from the standard build configuration and then generate the installable jar using
    Build -> Prepare Plugin Module 'dustsyntax' For Deployment.
-5. (Optional) Install [PSI Viewer](http://plugins.jetbrains.com/plugin/?id=227) plugin which lets you see the parse
+5. (Optional) Install [PSI Viewer](https://plugins.jetbrains.com/plugin/?id=227) plugin which lets you see the parse
    tree graphically.
 
 ## Release Notes
