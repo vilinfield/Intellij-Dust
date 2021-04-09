@@ -1,13 +1,12 @@
 package com.github.vilinfield.dust;
 
-import com.intellij.lang.annotation.AnnotationHolder;
-import com.intellij.lang.annotation.Annotator;
-import com.intellij.lang.annotation.HighlightSeverity;
-import com.intellij.openapi.util.TextRange;
-import com.intellij.psi.PsiElement;
 import com.github.vilinfield.dust.psi.DustCloseTag;
 import com.github.vilinfield.dust.psi.DustOpenTag;
 import com.github.vilinfield.dust.psi.DustTypes;
+import com.intellij.lang.annotation.AnnotationHolder;
+import com.intellij.lang.annotation.Annotator;
+import com.intellij.openapi.util.TextRange;
+import com.intellij.psi.PsiElement;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.regex.MatchResult;
@@ -40,8 +39,7 @@ public class DustAnnotator implements Annotator
                 {
                     MatchResult mr = m.toMatchResult();
                     TextRange tr = new TextRange(startOffset + mr.start(), startOffset + mr.end());
-                    holder.newSilentAnnotation(HighlightSeverity.ERROR).range(tr)
-                            .textAttributes(DustSyntaxHighlighter.TODO).create();
+                    holder.createInfoAnnotation(tr, null).setTextAttributes(DustSyntaxHighlighter.TODO);
                 }
             }
         }
@@ -70,13 +68,11 @@ public class DustAnnotator implements Annotator
             sibling = sibling.getNextSibling();
         }
 
-        holder.newAnnotation(HighlightSeverity.ERROR,
-                "Could not find matching closing tag " + getTagName(openTag)).range(openTag.getTextRange()).create();
+        holder.createErrorAnnotation(openTag.getTextRange(), "Could not find matching closing tag " + getTagName(openTag));
 
         if (closeTag != null)
         {
-            holder.newAnnotation(HighlightSeverity.ERROR,
-                    "Could not find matching opening tag " + getTagName(closeTag)).range(closeTag.getTextRange()).create();
+            holder.createErrorAnnotation(closeTag.getTextRange(), "Could not find matching opening tag " + getTagName(closeTag));
         }
     }
 

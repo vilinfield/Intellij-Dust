@@ -42,6 +42,10 @@ Plugin is available through the [Jetbrains plugin repository](https://plugins.je
 
 ## Release Notes
 
+**Version 0.4.1**
+
+* Fix range must be inside element being annotated exception
+
 **Version 0.4.0**
 
 * Maintainer change from Yi-Fan Zhang (yifanz) to Victor Linfield (vilinfield)
