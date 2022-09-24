@@ -1,7 +1,7 @@
 <idea-plugin url="https://github.com/vilinfield/Intellij-Dust">
     <id>com.github.vilinfield.dust</id>
     <name>Dust.js</name>
-    <version>0.4.1</version>
+    <version>0.4.2</version>
     <vendor>Victor Linfield</vendor>
 
     <description><![CDATA[
@@ -27,6 +27,12 @@
       ]]></description>
 
     <change-notes><![CDATA[
+    <b>Version 0.4.2</b>
+    <ul>
+      <li>
+        Add support for newer versions of Intellij > 2022.2
+      </li>
+    </ul>
     <b>Version 0.4.1</b>
     <ul>
       <li>

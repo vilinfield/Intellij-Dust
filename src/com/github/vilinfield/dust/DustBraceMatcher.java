@@ -107,7 +107,7 @@ public class DustBraceMatcher implements BraceMatcher
                     || iterator.getTokenType() == DustTypes.BLOCK
                     || iterator.getTokenType() == DustTypes.HELPER)
             {
-                // If first open type token we encountered is a block opener, the this is not a close brace because
+                // If first open type token we encountered is a block opener, then this is not a close brace because
                 // the paired close brace for these block openers is at the end of the corresponding block close tags.
                 break;
             }

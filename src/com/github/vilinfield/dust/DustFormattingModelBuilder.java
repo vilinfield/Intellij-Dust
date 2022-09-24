@@ -33,7 +33,7 @@ public class DustFormattingModelBuilder extends TemplateLanguageFormattingModelB
      * We have to override {@link com.intellij.formatting.templateLanguages.TemplateLanguageFormattingModelBuilder#createModel}
      * since after we delegate to some templated languages, those languages (xml/html for sure, potentially others)
      * delegate right back to us to format the DustTypes.OUTER_TYPE token we tell them to ignore,
-     * causing an stack-overflowing loop.
+     * causing a stack-overflowing loop.
      */
     @NotNull
     public FormattingModel createModel(FormattingContext formattingContext)

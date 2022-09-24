@@ -54,7 +54,7 @@ public class DustFormatterBlock extends TemplateLanguageBlock
                 && DustPsiUtil.isNonRootStatementsElement(myNode.getTreeParent().getPsi()))
         {
             // We are computing the indent for a direct descendant of a non-root STATEMENTS:
-            //  if its Block parent (i.e. not DUST AST Tree parent) is a DustForamtterBlock
+            //  if its Block parent (i.e. not DUST AST Tree parent) is a DustFormatterBlock
             //  which has NOT been indented, then have the element provide the indent itself.
             if (getParent() instanceof DustFormatterBlock
                     && ((DustFormatterBlock) getParent()).getIndent() == Indent.getNoneIndent())
@@ -139,9 +139,9 @@ public class DustFormatterBlock extends TemplateLanguageBlock
     @Override
     public ChildAttributes getChildAttributes(int newChildIndex)
     {
-        /**
+        /*
          * We indent if we're in a TAG_BLOCK (note that this works nicely since Enter can only be invoked
-         * INSIDE a block (i.e. after the open block).
+         * INSIDE a block (i.e. after the open block)).
          *
          * Also indent if we are wrapped in a block created by the templated language.
          */
@@ -156,5 +156,4 @@ public class DustFormatterBlock extends TemplateLanguageBlock
             return new ChildAttributes(Indent.getNoneIndent(), null);
         }
     }
-
 }

@@ -14,9 +14,9 @@ import com.intellij.psi.tree.OuterLanguageElementType;
 import com.intellij.util.IncorrectOperationException;
 import com.github.vilinfield.dust.psi.DustPsiUtil;
 import com.github.vilinfield.dust.psi.DustTypes;
-import gnu.trove.THashSet;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.coverage.gnu.trove.THashSet;
 
 import java.util.Arrays;
 import java.util.Set;

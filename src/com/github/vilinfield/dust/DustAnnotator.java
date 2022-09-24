@@ -5,6 +5,7 @@ import com.github.vilinfield.dust.psi.DustOpenTag;
 import com.github.vilinfield.dust.psi.DustTypes;
 import com.intellij.lang.annotation.AnnotationHolder;
 import com.intellij.lang.annotation.Annotator;
+import com.intellij.lang.annotation.HighlightSeverity;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.PsiElement;
 import org.jetbrains.annotations.NotNull;
@@ -18,10 +19,14 @@ public class DustAnnotator implements Annotator
     @Override
     public void annotate(@NotNull final PsiElement element, @NotNull AnnotationHolder holder)
     {
-        if (element instanceof DustOpenTag)
+        if (element instanceof DustOpenTag openTag)
         {
-            DustOpenTag openTag = (DustOpenTag) element;
             checkMatchingCloseTag(openTag, holder);
+        }
+
+        if (element instanceof DustCloseTag closeTag)
+        {
+            checkMatchingOpenTag(closeTag, holder);
         }
 
         if (element.getNode().getElementType() == DustTypes.COMMENT)
@@ -39,7 +44,10 @@ public class DustAnnotator implements Annotator
                 {
                     MatchResult mr = m.toMatchResult();
                     TextRange tr = new TextRange(startOffset + mr.start(), startOffset + mr.end());
-                    holder.createInfoAnnotation(tr, null).setTextAttributes(DustSyntaxHighlighter.TODO);
+                    holder.newSilentAnnotation(HighlightSeverity.INFORMATION)
+                            .textAttributes(DustSyntaxHighlighter.TODO)
+                            .range(tr)
+                            .create();
                 }
             }
         }
@@ -54,7 +62,7 @@ public class DustAnnotator implements Annotator
 
         String openTagName = getTagName(openTag);
         PsiElement sibling = openTag.getNextSibling();
-        DustCloseTag closeTag = null;
+        DustCloseTag closeTag;
         while (sibling != null)
         {
             if (sibling instanceof DustCloseTag)
@@ -68,12 +76,37 @@ public class DustAnnotator implements Annotator
             sibling = sibling.getNextSibling();
         }
 
-        holder.createErrorAnnotation(openTag.getTextRange(), "Could not find matching closing tag " + getTagName(openTag));
+        holder.newAnnotation(HighlightSeverity.ERROR, "Could not find matching closing tag " + getTagName(openTag))
+                .range(openTag)
+                .create();
+    }
 
-        if (closeTag != null)
+    private static void checkMatchingOpenTag(DustCloseTag closeTag, AnnotationHolder holder)
+    {
+        if (closeTag == null)
         {
-            holder.createErrorAnnotation(closeTag.getTextRange(), "Could not find matching opening tag " + getTagName(closeTag));
+            return;
         }
+
+        String closeTagName = getTagName(closeTag);
+        PsiElement sibling = closeTag.getPrevSibling();
+        DustOpenTag openTag;
+        while (sibling != null)
+        {
+            if (sibling instanceof DustOpenTag)
+            {
+                openTag = (DustOpenTag) sibling;
+                if (getTagName(openTag).equals(closeTagName))
+                {
+                    return;
+                }
+            }
+            sibling = sibling.getPrevSibling();
+        }
+
+        holder.newAnnotation(HighlightSeverity.ERROR, "Could not find matching opening tag " + getTagName(closeTag))
+                .range(closeTag)
+                .create();
     }
 
     private static String getTagName(PsiElement tag)

@@ -10,7 +10,7 @@ which is no longer maintained.
 
 ## Install
 
-Plugin is available through the [Jetbrains plugin repository](https://plugins.jetbrains.com/plugin/16458-dust-js).
+Plugin is available from the [Jetbrains plugin repository](https://plugins.jetbrains.com/plugin/16458-dust-js).
 
 ### Install From Repository (recommended)
 
@@ -41,6 +41,10 @@ Plugin is available through the [Jetbrains plugin repository](https://plugins.je
    tree graphically.
 
 ## Release Notes
+
+**Version 0.4.2**
+
+* Add support for newer versions of Intellij > 2022.2
 
 **Version 0.4.1**
 
