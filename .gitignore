@@ -2,13 +2,9 @@
 .idea/workspace.xml
 .idea/uiDesigner.xml
 
-# Jflex Files
-jflex-*.jar
-idea-flex.skeleton
-
-# Build Files
-out/
-dust_syntax.jar
+# Gradle Files
+.gradle
+build/
 
 # Dust.flex and Dust.bnf Generated Files
-gen/
+src/gen/

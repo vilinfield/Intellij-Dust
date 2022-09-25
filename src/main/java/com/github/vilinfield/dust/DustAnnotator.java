@@ -19,13 +19,15 @@ public class DustAnnotator implements Annotator
     @Override
     public void annotate(@NotNull final PsiElement element, @NotNull AnnotationHolder holder)
     {
-        if (element instanceof DustOpenTag openTag)
+        if (element instanceof DustOpenTag)
         {
+            DustOpenTag openTag = (DustOpenTag) element;
             checkMatchingCloseTag(openTag, holder);
         }
 
-        if (element instanceof DustCloseTag closeTag)
+        if (element instanceof DustCloseTag)
         {
+            DustCloseTag closeTag = (DustCloseTag) element;
             checkMatchingOpenTag(closeTag, holder);
         }
 

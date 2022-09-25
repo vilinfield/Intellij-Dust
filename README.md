@@ -1,6 +1,6 @@
 # Dust Plugin for Intellij
 
-[Dust.js](http://linkedin.github.com/dustjs/) Template Support.
+[Dust.js](https://github.com/linkedin/dustjs) Template Support.
 
 Provides syntax highlighting for the Dust.js Templating Language, goto declaration on dust partial tags and support
 within standard HTML documents.
@@ -18,7 +18,7 @@ Plugin is available from the [Jetbrains plugin repository](https://plugins.jetbr
 
 ### Manual Install
 
-1. Download the latest jar from [GitHub Releases](https://github.com/vilinfield/Intellij-Dust/releases).
+1. Download the latest zip file (or jar for versions < 0.4.2) from [GitHub Releases](https://github.com/vilinfield/Intellij-Dust/releases).
 2. Go to File -> Settings -> Plugins -> Install plugin from disk.
 
 ### After Installation
@@ -28,15 +28,13 @@ Plugin is available from the [Jetbrains plugin repository](https://plugins.jetbr
 
 ## Developer Notes
 
-1. Open the project with Intellij. The project is already setup to be an Intellij Plugin Module and should have the
-   build settings configured. The only build dependency is the IDEA SDK. However, you may need to configure the SDK
-   version and location specific to your system.
+1. Open the project with Intellij. The project is already setup to be a Gradle IntelliJ Plugin and should have the
+   build settings already configured. The only dependency is a Java 11 SDK which may need to be configured for your system.
 2. Install the [Grammar-Kit](https://plugins.jetbrains.com/plugin/?id=6606) plugin.
-3. You will need the Grammar-Kit to generate the parser source files from Dust.bnf and JFlex to generate the DustLexer
+3. You will need Grammar-Kit to generate the parser source files from Dust.bnf and JFlex to generate the DustLexer
    from Dust.flex. Since the generated sources are not checked into version control, you need to remember to generate
-   the lexer/parser before compiling.
-4. Build the plugin from the standard build configuration and then generate the installable jar using
-   Build -> Prepare Plugin Module 'dustsyntax' For Deployment.
+   the lexer/parser before compiling using the generateParser and generateLexer Gradle tasks.
+4. Build the plugin and prepare it for deployment using the buildPlugin Gradle task.
 5. (Optional) Install [PSI Viewer](https://plugins.jetbrains.com/plugin/?id=227) plugin which lets you see the parse
    tree graphically.
 
@@ -44,7 +42,7 @@ Plugin is available from the [Jetbrains plugin repository](https://plugins.jetbr
 
 **Version 0.4.2**
 
-* Add support for newer versions of Intellij > 2022.2
+* Improve compatability with newer Intellij releases
 
 **Version 0.4.1**
 

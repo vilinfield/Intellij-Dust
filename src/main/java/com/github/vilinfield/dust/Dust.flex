@@ -1,8 +1,10 @@
 package com.github.vilinfield.dust;
 
-import com.intellij.psi.tree.IElementType;
-import DustTypes;
+import com.github.vilinfield.dust.psi.DustTypes;
+import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.TokenType;
+import com.intellij.psi.tree.IElementType;
+
 import java.util.Stack;
 
 %%

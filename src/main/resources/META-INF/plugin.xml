@@ -5,7 +5,7 @@
     <vendor>Victor Linfield</vendor>
 
     <description><![CDATA[
-      <a href="http://linkedin.github.com/dustjs/">Dust.js</a> Template Support.
+      <a href="https://github.com/linkedin/dustjs">Dust.js</a> Template Support.
       <br>
       Provides syntax highlighting for the Dust.js Templating Language, goto declaration on dust partial tags and
       support within standard HTML documents.
@@ -30,7 +30,7 @@
     <b>Version 0.4.2</b>
     <ul>
       <li>
-        Add support for newer versions of Intellij > 2022.2
+        Improve compatability with newer Intellij releases
       </li>
     </ul>
     <b>Version 0.4.1</b>
