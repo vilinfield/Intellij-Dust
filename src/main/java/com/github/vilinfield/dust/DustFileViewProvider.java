@@ -16,9 +16,7 @@ import com.github.vilinfield.dust.psi.DustPsiUtil;
 import com.github.vilinfield.dust.psi.DustTypes;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.coverage.gnu.trove.THashSet;
 
-import java.util.Arrays;
 import java.util.Set;
 
 public class DustFileViewProvider extends MultiplePsiFilesPerDocumentFileViewProvider implements TemplateLanguageFileViewProvider
@@ -78,7 +76,7 @@ public class DustFileViewProvider extends MultiplePsiFilesPerDocumentFileViewPro
     @Override
     public Set<Language> getLanguages()
     {
-        return new THashSet<>(Arrays.asList(DustLanguage.INSTANCE, myTemplateDataLanguage));
+        return Set.of(DustLanguage.INSTANCE, myTemplateDataLanguage);
     }
 
     @NotNull

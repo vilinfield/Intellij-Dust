@@ -40,6 +40,10 @@ Plugin is available from the [Jetbrains plugin repository](https://plugins.jetbr
 
 ## Release Notes
 
+**Version 0.4.3**
+
+* Improve compatability with newer Intellij releases
+
 **Version 0.4.2**
 
 * Improve compatability with newer Intellij releases
