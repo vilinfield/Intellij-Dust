@@ -39,9 +39,8 @@ public class DustSyntaxHighlighter extends SyntaxHighlighterBase
         return new FlexAdapter(new DustLexer(null));
     }
 
-    @NotNull
     @Override
-    public TextAttributesKey[] getTokenHighlights(IElementType tokenType)
+    public TextAttributesKey @NotNull [] getTokenHighlights(IElementType tokenType)
     {
         if (isPartOfComment(tokenType))
         {

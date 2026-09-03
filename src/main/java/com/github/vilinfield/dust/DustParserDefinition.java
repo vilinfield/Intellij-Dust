@@ -55,17 +55,20 @@ public class DustParserDefinition implements ParserDefinition
         return new DustParser();
     }
 
+    @NotNull
     @Override
     public IFileElementType getFileNodeType()
     {
         return FILE;
     }
 
-    public PsiFile createFile(FileViewProvider viewProvider)
+    @NotNull
+    public PsiFile createFile(@NotNull FileViewProvider viewProvider)
     {
         return new DustFile(viewProvider);
     }
 
+    @NotNull
     public SpaceRequirements spaceExistenceTypeBetweenTokens(ASTNode left, ASTNode right)
     {
         return SpaceRequirements.MAY;
@@ -77,4 +80,3 @@ public class DustParserDefinition implements ParserDefinition
         return DustTypes.Factory.createElement(node);
     }
 }
-

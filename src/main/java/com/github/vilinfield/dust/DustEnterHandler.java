@@ -4,7 +4,6 @@ import com.intellij.codeInsight.editorActions.enter.EnterHandlerDelegateAdapter;
 import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.actionSystem.EditorActionHandler;
-import com.intellij.openapi.editor.ex.EditorEx;
 import com.intellij.openapi.editor.highlighter.EditorHighlighter;
 import com.intellij.openapi.editor.highlighter.HighlighterIterator;
 import com.intellij.openapi.util.Ref;
@@ -58,7 +57,7 @@ public class DustEnterHandler extends EnterHandlerDelegateAdapter
             return false;
         }
 
-        EditorHighlighter highlighter = ((EditorEx) editor).getHighlighter();
+        EditorHighlighter highlighter = editor.getHighlighter();
         HighlighterIterator iterator = highlighter.createIterator(offset - 1);
 
         final PsiElement openerElement = file.findElementAt(iterator.getStart());

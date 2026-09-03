@@ -35,7 +35,7 @@ public class DustFormatterBlock extends TemplateLanguageBlock
     public Indent getIndent()
     {
         // Ignore whitespace.
-        if (myNode.getText().trim().length() == 0)
+        if (myNode.getText().trim().isEmpty())
         {
             return Indent.getNoneIndent();
         }

@@ -30,42 +30,44 @@ public class DustColorSettingsPage implements ColorSettingsPage
         additionalHighlightingMap.put("todocomment", DustSyntaxHighlighter.TODO);
     }
 
-    private String demo = "";
+    private final String demo;
 
     public DustColorSettingsPage()
     {
-        demo = "{!\n" +
-                "    You are reading the DUST template example\n" +
-                "    <todocomment>TODO comment</todocomment> \n" +
-                "    more comments {somepath}\n" +
-                "!}\n" +
-                "{#person test=something keya=valuea keyb=\"linked{expression}in\"}\n" +
-                "    {>\"path/to/template\"/}\n" +
-                "    {<someInlinePartial}\n" +
-                "        {?name}\n" +
-                "            {! Dust Comment !}\n" +
-                "            {@some.helper key=\"some key\" text=\"some value\"/}\n" +
-                "            {key}{key|s}{key|h}{key|s|h|u} {! filters !}\n" +
-                "            {?first}\n" +
-                "                {.first}\n" +
-                "                {subscript[0]}\n" +
-                "                {subscript[0].content}\n" +
-                "                {subscript[index.key].content}\n" +
-                "            {:else}\n" +
-                "                {#selfClosingSection/}\n" +
-                "            {/first}\n" +
-                "        {/name}\n" +
-                "    {/someInlinePartial}\n" +
-                "\n" +
-                "    {#items}\n" +
-                "        {>\"partials-view\" item=. /}\n" +
-                "        {@eq key=idx value=125}{/eq}\n" +
-                "        {0}\n" +
-                "    {/items}\n" +
-                "    {+selfClosingBlock/}\n" +
-                "    {+block}Default Value{/block}\n" +
-                "    {@helper-tag_test/}\n" +
-                "{/person}\n";
+        demo = """
+                {!
+                    You are reading the DUST template example
+                    <todocomment>TODO comment</todocomment>
+                    more comments {somepath}
+                !}
+                {#person test=something keya=valuea keyb="linked{expression}in"}
+                    {>"path/to/template"/}
+                    {<someInlinePartial}
+                        {?name}
+                            {! Dust Comment !}
+                            {@some.helper key="some key" text="some value"/}
+                            {key}{key|s}{key|h}{key|s|h|u} {! filters !}
+                            {?first}
+                                {.first}
+                                {subscript[0]}
+                                {subscript[0].content}
+                                {subscript[index.key].content}
+                            {:else}
+                                {#selfClosingSection/}
+                            {/first}
+                        {/name}
+                    {/someInlinePartial}
+                
+                    {#items}
+                        {>"partials-view" item=. /}
+                        {@eq key=idx value=125}{/eq}
+                        {0}
+                    {/items}
+                    {+selfClosingBlock/}
+                    {+block}Default Value{/block}
+                    {@helper-tag_test/}
+                {/person}
+                """;
     }
 
     @Nullable
@@ -96,16 +98,14 @@ public class DustColorSettingsPage implements ColorSettingsPage
         return additionalHighlightingMap;
     }
 
-    @NotNull
     @Override
-    public AttributesDescriptor[] getAttributeDescriptors()
+    public AttributesDescriptor @NotNull [] getAttributeDescriptors()
     {
         return DESCRIPTORS;
     }
 
-    @NotNull
     @Override
-    public ColorDescriptor[] getColorDescriptors()
+    public ColorDescriptor @NotNull [] getColorDescriptors()
     {
         return ColorDescriptor.EMPTY_ARRAY;
     }

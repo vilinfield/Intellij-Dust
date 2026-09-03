@@ -179,9 +179,8 @@ public class DustFileViewProvider extends MultiplePsiFilesPerDocumentFileViewPro
                                 return false;
                             }
 
-                            @NotNull
                             @Override
-                            public Object[] getVariants()
+                            public Object @NotNull [] getVariants()
                             {
                                 return new Object[0];
                             }

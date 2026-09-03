@@ -67,14 +67,14 @@ public class DustGotoDeclarationHandler implements GotoDeclarationHandler
             {
                 String filePathStr = sourceElement.getText();
 
-                if (filePathStr != null && !filePathStr.trim().equals("") && filePathStr.length() > 2)
+                if (filePathStr != null && !filePathStr.trim().isEmpty() && filePathStr.length() > 2)
                 {
                     if (filePathStr.charAt(0) == '"' || filePathStr.charAt(0) == '\'')
                     {
                         filePathStr = filePathStr.trim().substring(1, filePathStr.length() - 1);
                     }
                     String[] filePath = filePathStr.split(DUST_SOURCE_SEP);
-                    if (filePath != null && filePath[0].equals(""))
+                    if (filePath != null && filePath[0].isEmpty())
                     {
                         filePath[0] = DUST_SOURCE_SEP;
                     }
@@ -103,7 +103,7 @@ public class DustGotoDeclarationHandler implements GotoDeclarationHandler
                                             && vFilePathStr.startsWith(basePath))
                                     {
                                         List<String> vFilePath = splitFilePath(vFile);
-                                        if (vFilePath != null && vFilePath.size() > 0)
+                                        if (vFilePath != null && !vFilePath.isEmpty())
                                         {
                                             boolean match = true;
                                             int j = vFilePath.size() - 2;

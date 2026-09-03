@@ -1,6 +1,7 @@
 # IntelliJ Files
 .idea/workspace.xml
 .idea/uiDesigner.xml
+.intellijPlatform/
 
 # Gradle Files
 .gradle

@@ -1,4 +1,4 @@
-# Dust Plugin for Intellij
+# Dust Plugin for IntelliJ
 
 [Dust.js](https://github.com/linkedin/dustjs) Template Support.
 
@@ -10,43 +10,49 @@ which is no longer maintained.
 
 ## Install
 
-Plugin is available from the [Jetbrains plugin repository](https://plugins.jetbrains.com/plugin/16458-dust-js).
+Plugin is available from the [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/16458-dust-js).
 
-### Install From Repository (recommended)
+### Install From Marketplace (recommended)
 
-1. Search for and install the plugin: File -> Settings -> Plugins -> Browse repositories.
+1. Search for and install the plugin: File -> Settings -> Plugins -> Marketplace.
 
 ### Manual Install
 
 1. Download the latest zip file (or jar for versions < 0.4.2) from [GitHub Releases](https://github.com/vilinfield/Intellij-Dust/releases).
-2. Go to File -> Settings -> Plugins -> Install plugin from disk.
+2. Go to File -> Settings -> Plugins -> Install Plugin from Disk.
 
 ### After Installation
 
-1. Associate plugin with your dust file extension: File -> Settings -> Editor -> File Types -> Dust template (*.dust and *.tl are associated by default).
+1. Associate plugin with your Dust file extension: File -> Settings -> Editor -> File Types -> Dust template 
+   (*.dust and *.tl are associated by default).
 2. Customize appearance: File -> Settings -> Editor -> Color Scheme -> Dust (optional, inherits from defaults).
 
 ## Developer Notes
 
-1. Open the project with Intellij. The project is already setup to be a Gradle IntelliJ Plugin and should have the
-   build settings already configured. The only dependency is a Java 11 SDK which may need to be configured for your system.
+1. Open the project with IntelliJ. The project is already setup to be an IntelliJ Platform Gradle Plugin and should have
+   the build settings already configured. The only dependency is a Java 21 SDK which may need to be configured for your 
+   system.
 2. Install the [Grammar-Kit](https://plugins.jetbrains.com/plugin/?id=6606) plugin.
 3. You will need Grammar-Kit to generate the parser source files from Dust.bnf and JFlex to generate the DustLexer
    from Dust.flex. Since the generated sources are not checked into version control, you need to remember to generate
-   the lexer/parser before compiling using the generateParser and generateLexer Gradle tasks.
+   the lexer/parser before compiling using the generateDustParser and generateDustLexer Gradle tasks.
 4. Build the plugin and prepare it for deployment using the buildPlugin Gradle task.
-5. (Optional) Install [PSI Viewer](https://plugins.jetbrains.com/plugin/?id=227) plugin which lets you see the parse
+5. (Optional) Install the [PsiViewer](https://plugins.jetbrains.com/plugin/?id=227) plugin which lets you see the parse
    tree graphically.
 
 ## Release Notes
 
+**Version 0.5.0**
+
+* Improve compatability with newer IntelliJ releases >= 2025.2
+
 **Version 0.4.3**
 
-* Improve compatability with newer Intellij releases
+* Improve compatability with newer IntelliJ releases
 
 **Version 0.4.2**
 
-* Improve compatability with newer Intellij releases
+* Improve compatability with newer IntelliJ releases
 
 **Version 0.4.1**
 
@@ -55,7 +61,7 @@ Plugin is available from the [Jetbrains plugin repository](https://plugins.jetbr
 **Version 0.4.0**
 
 * Maintainer change from Yi-Fan Zhang (yifanz) to Victor Linfield (vilinfield)
-* Add support for newer versions of Intellij > 2020.3
+* Add support for newer versions of IntelliJ > 2020.3
 * Inherit color scheme from defaults
 * Update colorscheme page demo
 * Add *.dust as a default file type alongside *.tl

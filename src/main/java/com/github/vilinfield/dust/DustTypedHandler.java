@@ -93,7 +93,7 @@ public class DustTypedHandler extends TypedHandlerDelegate
 
         String tagName = getTagName(openTag);
 
-        if (!tagName.trim().equals(""))
+        if (!tagName.trim().isEmpty())
         {
             boolean addCloseTag = true;
             PsiElement sibling = openTag.getNextSibling();

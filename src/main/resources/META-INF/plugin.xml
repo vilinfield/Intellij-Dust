@@ -1,9 +1,4 @@
-<idea-plugin url="https://github.com/vilinfield/Intellij-Dust">
-    <id>com.github.vilinfield.dust</id>
-    <name>Dust.js</name>
-    <version>0.4.3</version>
-    <vendor>Victor Linfield</vendor>
-
+<idea-plugin require-restart="true" url="https://github.com/vilinfield/Intellij-Dust">
     <description><![CDATA[
       <a href="https://github.com/linkedin/dustjs">Dust.js</a> Template Support.
       <br>
@@ -15,7 +10,7 @@
       <br>
       <ul>
           <li>
-          Associate the plugin with your dust file extension: File -> Settings -> Editor -> File Types -> Dust template
+          Associate the plugin with your Dust file extension: File -> Settings -> Editor -> File Types -> Dust template
           (*.dust and *.tl are associated by default).
           </li>
           <li>
@@ -27,16 +22,22 @@
       ]]></description>
 
     <change-notes><![CDATA[
+    <b>Version 0.5.0</b>
+    <ul>
+      <li>
+        Improve compatability with newer IntelliJ releases >= 2025.2
+      </li>
+    </ul>
     <b>Version 0.4.3</b>
     <ul>
       <li>
-        Improve compatability with newer Intellij releases
+        Improve compatability with newer IntelliJ releases
       </li>
     </ul>
     <b>Version 0.4.2</b>
     <ul>
       <li>
-        Improve compatability with newer Intellij releases
+        Improve compatability with newer IntelliJ releases
       </li>
     </ul>
     <b>Version 0.4.1</b>
@@ -51,7 +52,7 @@
         Maintainer change from Yi-Fan Zhang (yifanz) to Victor Linfield (vilinfield)
       </li>
       <li>
-        Add support for newer versions of Intellij > 2020.3
+        Add support for newer versions of IntelliJ > 2020.3
       </li>
       <li>
         Inherit color scheme from defaults
@@ -179,8 +180,6 @@
     </ul>
       ]]>
     </change-notes>
-
-    <idea-version since-build="203.0"/>
 
     <depends>com.intellij.modules.lang</depends>
 

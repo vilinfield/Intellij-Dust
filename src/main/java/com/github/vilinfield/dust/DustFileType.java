@@ -17,8 +17,9 @@ public class DustFileType extends LanguageFileType
     {
         super(DustLanguage.INSTANCE);
         // Register highlighter - lazy singleton factory.
-        FileTypeEditorHighlighterProviders.INSTANCE.addExplicitExtension(this,
-                (project, fileType, virtualFile, editorColorsScheme) -> new DustLayeredSyntaxHighlighter(project, virtualFile, editorColorsScheme));
+        FileTypeEditorHighlighterProviders.getInstance().addExplicitExtension(this,
+                (project, fileType, virtualFile, editorColorsScheme) ->
+                        new DustLayeredSyntaxHighlighter(project, virtualFile, editorColorsScheme));
     }
 
     @Override
