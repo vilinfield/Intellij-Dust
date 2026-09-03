@@ -27,6 +27,9 @@
       <li>
         Improve compatability with newer IntelliJ releases >= 2025.2
       </li>
+      <li>
+        Add new UI icons
+      </li>
     </ul>
     <b>Version 0.4.3</b>
     <ul>
@@ -197,5 +200,6 @@
         <typedHandler implementation="com.github.vilinfield.dust.DustTypedHandler"/>
         <enterHandlerDelegate implementation="com.github.vilinfield.dust.DustEnterHandler"/>
         <lang.commenter language="Dust" implementationClass="com.github.vilinfield.dust.DustCommenter"/>
+        <iconMapper mappingFile="DustIconMappings.json"/>
     </extensions>
 </idea-plugin>

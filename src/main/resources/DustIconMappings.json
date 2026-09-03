@@ -1,0 +1,15 @@
+{
+  "com": {
+    "github": {
+      "vilinfield": {
+        "dust": {
+          "icons": {
+            "expui": {
+              "dustIcon.svg": "com/github/vilinfield/dust/icons/dustIcon.svg"
+            }
+          }
+        }
+      }
+    }
+  }
+}

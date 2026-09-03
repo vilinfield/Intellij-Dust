@@ -45,6 +45,7 @@ Plugin is available from the [JetBrains Marketplace](https://plugins.jetbrains.c
 **Version 0.5.0**
 
 * Improve compatability with newer IntelliJ releases >= 2025.2
+* Add new UI icons
 
 **Version 0.4.3**
 
